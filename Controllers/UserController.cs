@@ -11,6 +11,7 @@ namespace LocalFoodBusinessLayer.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
+        // NORMAL USER ACCESSIBLE ENDPOINTS
         [HttpGet]
         [Route("GetProfile")]
         public HttpResponseMessage Get([FromUri] int userId)
@@ -45,6 +46,37 @@ namespace LocalFoodBusinessLayer.Controllers
                 searchedUser.UserName = user.UserName;
                 context.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK, searchedUser);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
+            }
+        }
+
+        // ADMIN USER ACCESSIBLE ENDPOINTS
+        [HttpGet]
+        [Route("AllUsers")]
+        public HttpResponseMessage GetAllUsers()
+        {
+            try
+            {
+                var context = new LocalFoodDBContext();
+                return Request.CreateResponse(HttpStatusCode.OK, context.Users);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        [Route("AllOrders")]
+        public HttpResponseMessage GetAllOrders()
+        {
+            try
+            {
+                var context = new LocalFoodDBContext();
+                return Request.CreateResponse(HttpStatusCode.OK, context.Orders);
             }
             catch (Exception ex)
             {
