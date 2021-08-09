@@ -114,6 +114,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -125,10 +127,17 @@
     <Compile Include="Migrations\202108090820515_AddedProductsAndOrders.designer.cs">
       <DependentUpon>202108090820515_AddedProductsAndOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108091059200_AddedAdminUsers.cs" />
+    <Compile Include="Migrations\202108091059200_AddedAdminUsers.designer.cs">
+      <DependentUpon>202108091059200_AddedAdminUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminUser.cs" />
     <Compile Include="Models\LocalFoodDBContext.cs" />
+    <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\UpdateUser.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108090806546_initialMigration.resx">
@@ -152,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108090820515_AddedProductsAndOrders.resx">
       <DependentUpon>202108090820515_AddedProductsAndOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108091059200_AddedAdminUsers.resx">
+      <DependentUpon>202108091059200_AddedAdminUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
