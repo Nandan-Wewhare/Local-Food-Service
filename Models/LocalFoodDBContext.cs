@@ -14,5 +14,6 @@ namespace LocalFoodBusinessLayer.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<AdminUser> AdminUsers { get; set; }
+        public DbSet<Cart> CartItems { get; set; }
     }
 }
