@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-itemsadmin',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsadminComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  products: [] = [];
   ngOnInit(): void {
+    var admin = new AdminService(this.http);
+    admin.getAllProducts().subscribe((response) => {
+      console.log(response);
+    }, (error) => { console.log(error) })
   }
 
 }

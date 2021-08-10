@@ -8,6 +8,7 @@ import { SidenavadminComponent } from './components/sidenavadmin/sidenavadmin.co
 import { ItemsadminComponent } from './components/itemsadmin/itemsadmin.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { UsersComponent } from './components/users/users.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'adminHome', component: AdminHomeComponent },
@@ -22,11 +23,12 @@ const appRoutes: Routes = [
     SidenavadminComponent,
     ItemsadminComponent,
     OrdersComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
