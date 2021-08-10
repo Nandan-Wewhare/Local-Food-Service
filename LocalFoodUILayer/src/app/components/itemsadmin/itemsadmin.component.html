@@ -3,25 +3,77 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <h1>All Products</h1>
-<table class="table table-hover">
+<table class="table">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
-            <th>Price</th>
-            <th>Discount</th>
-            <th>Image</th>
-            <th>Category</th>
-            <th>Details</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
             <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.discount}}</td>
-            <img src={{product.image}} height="80">
-            <td>{{product.category}}</td>
-            <td>{{product.desc}}</td>
+            <td><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update</button>
+            </td>
+            <td><button class="btn btn-danger">Delete</button></td>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Update Product</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value,product.id)">
+                                <div class="mb-3">
+                                    <label class="form-label">Product ID</label>
+                                    <input type="Text" class="form-control" name="id" [ngModel]="getForm(product.id).id"
+                                        disabled readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Product Name</label>
+                                    <input type="Text" class="form-control" name="name"
+                                        [ngModel]="getForm(product.id).name">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Price</label>
+                                    <input type="Text" class="form-control" name="price"
+                                        [ngModel]="getForm(product.id).price">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Discount</label>
+                                    <input type="Text" class="form-control" name="discount"
+                                        [ngModel]="getForm(product.id).discount">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Image URL</label>
+                                    <input type="Text" class="form-control" name="image"
+                                        [ngModel]="getForm(product.id).image">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Details</label>
+                                    <input type="Text" class="form-control" name="details"
+                                        [ngModel]="getForm(product.id).details">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Category</label>
+                                    <input type="Text" class="form-control" name="category"
+                                        [ngModel]="getForm(product.id).category">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary" value="Update" data-bs-dismiss="modal">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </tr>
     </tbody>
 </table>

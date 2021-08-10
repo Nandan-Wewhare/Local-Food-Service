@@ -16,12 +16,31 @@ export class ItemsadminComponent implements OnInit {
   ngOnInit(): void {
     var admin = new AdminService(this.http);
     admin.getAllProducts().subscribe((response) => {
-      console.log(response)
       var responseProducts = JSON.parse(JSON.stringify((response)));
       responseProducts.forEach((item: any) => {
-        this.products.push(new Product(item["ProductId"], item["ProductName"], item["Image"], item["Details"], item["Price"], item["Discount"], item["CategoryType"]));
+        this.products.push(new Product(item["ProductID"], item["ProductName"], item["Image"], item["Details"], item["Price"], item["Discount"], item["CategoryType"]));
       })
-    }, (error) => { this.error = error })
+    }, (error) => { this.error = error["statusText"] })
+  }
+
+  getForm(id: number) {
+    return {
+      id: this.products[this.products.findIndex(p => p.id == id)].id,
+      name: this.products[this.products.findIndex(p => p.id == id)].name,
+      price: this.products[this.products.findIndex(p => p.id == id)].price,
+      discount: this.products[this.products.findIndex(p => p.id == id)].discount,
+      image: this.products[this.products.findIndex(p => p.id == id)].image,
+      category: this.products[this.products.findIndex(p => p.id == id)].category,
+      details: this.products[this.products.findIndex(p => p.id == id)].desc
+    };
+  }
+
+  onSubmit(formData: any, id: number) {
+    // console.log(formData);
+    var admin = new AdminService(this.http);
+    admin.updateProduct(id, formData).subscribe((res) => {
+      console.log(res);
+    }, (error) => { this.error = error["statusText"] })
   }
 
 }

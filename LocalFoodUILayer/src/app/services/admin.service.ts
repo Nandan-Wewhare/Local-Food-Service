@@ -9,8 +9,11 @@ export class AdminService {
   constructor(private http: HttpClient) { }
   baseUrl: string = environment.baseUrl;
   getAllProducts() {
-    return this.http.get(this.baseUrl + "/user/allProducts")
+    return this.http.get(this.baseUrl + "/product/AllProducts")
   }
 
+  updateProduct(productId: number, formBody: any) {
+    return this.http.patch(this.baseUrl + `/product/UpdateProduct?id=${productId}`, formBody)
+  }
 
 }
