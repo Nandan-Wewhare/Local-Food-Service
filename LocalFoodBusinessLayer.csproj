@@ -115,6 +115,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -139,8 +140,13 @@
     <Compile Include="Migrations\202108100552402_updatecolumnimage.designer.cs">
       <DependentUpon>202108100552402_updatecolumnimage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108100734265_addedCartTable.cs" />
+    <Compile Include="Migrations\202108100734265_addedCartTable.designer.cs">
+      <DependentUpon>202108100734265_addedCartTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminUser.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\LocalFoodDBContext.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Order.cs" />
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108100552402_updatecolumnimage.resx">
       <DependentUpon>202108100552402_updatecolumnimage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108100734265_addedCartTable.resx">
+      <DependentUpon>202108100734265_addedCartTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
