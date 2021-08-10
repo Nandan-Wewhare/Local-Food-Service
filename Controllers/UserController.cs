@@ -83,20 +83,5 @@ namespace LocalFoodBusinessLayer.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
             }
         }
-
-        [HttpGet]
-        [Route("AllProducts")]
-        public HttpResponseMessage GetAllProducts()
-        {
-            try
-            {
-                var context = new LocalFoodDBContext();
-                return Request.CreateResponse(HttpStatusCode.OK, context.Products);
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
-            }
-        }
     }
 }
