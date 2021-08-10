@@ -13,7 +13,32 @@ export class AdminService {
   }
 
   updateProduct(productId: number, formBody: any) {
-    return this.http.patch(this.baseUrl + `/product/UpdateProduct?id=${productId}`, formBody)
+    var updateBody = {
+      "ProductID": productId,
+      "ProductName": formBody["name"],
+      "CategoryType": formBody["category"],
+      "Details": formBody["details"],
+      "Price": formBody["price"],
+      "Discount": formBody["discount"],
+      "Image": formBody["image"]
+    };
+    return this.http.patch(this.baseUrl + `/product/UpdateProduct?id=${productId}`, updateBody)
+  }
+
+  deleteProduct(productId: number) {
+    return this.http.delete(this.baseUrl + `/product/DeleteProduct?id=${productId}`)
+  }
+
+  addProduct(formBody: any) {
+    var addBody = {
+      "ProductName": formBody["name"],
+      "CategoryType": formBody["category"],
+      "Details": formBody["details"],
+      "Price": formBody["price"],
+      "Discount": formBody["discount"],
+      "Image": formBody["image"]
+    };
+    return this.http.post(this.baseUrl + `/product/AddProduct`, addBody)
   }
 
 }

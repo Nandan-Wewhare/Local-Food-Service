@@ -10,8 +10,14 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { UsersComponent } from './components/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 
 const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'AdminLogin', component: AdminloginComponent },
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'items', component: ItemsadminComponent },
   { path: 'orders', component: OrdersComponent },
@@ -25,6 +31,9 @@ const appRoutes: Routes = [
     ItemsadminComponent,
     OrdersComponent,
     UsersComponent,
+    LoginComponent,
+    SignupComponent,
+    AdminloginComponent,
   ],
   imports: [
     BrowserModule,
