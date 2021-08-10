@@ -9,6 +9,8 @@ export class AdminService {
   constructor(private http: HttpClient) { }
   baseUrl: string = environment.baseUrl;
   getAllProducts() {
-    return this.http.get(this.baseUrl + "/users/allProducts")
+    return this.http.get(this.baseUrl + "/user/allProducts")
   }
+
+
 }

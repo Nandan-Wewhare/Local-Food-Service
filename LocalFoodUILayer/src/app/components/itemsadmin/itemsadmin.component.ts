@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
+import { Product } from 'src/app/types/Product';
 
 @Component({
   selector: 'app-itemsadmin',
@@ -10,12 +11,17 @@ import { AdminService } from 'src/app/services/admin.service';
 export class ItemsadminComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
-  products: [] = [];
+  error = "";
+  products: Product[] = [];
   ngOnInit(): void {
     var admin = new AdminService(this.http);
     admin.getAllProducts().subscribe((response) => {
-      console.log(response);
-    }, (error) => { console.log(error) })
+      console.log(response)
+      var responseProducts = JSON.parse(JSON.stringify((response)));
+      responseProducts.forEach((item: any) => {
+        this.products.push(new Product(item["ProductId"], item["ProductName"], item["Image"], item["Details"], item["Price"], item["Discount"], item["CategoryType"]));
+      })
+    }, (error) => { this.error = error })
   }
 
 }
