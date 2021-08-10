@@ -131,6 +131,14 @@
     <Compile Include="Migrations\202108091059200_AddedAdminUsers.designer.cs">
       <DependentUpon>202108091059200_AddedAdminUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108100549041_updateproducttable.cs" />
+    <Compile Include="Migrations\202108100549041_updateproducttable.designer.cs">
+      <DependentUpon>202108100549041_updateproducttable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108100552402_updatecolumnimage.cs" />
+    <Compile Include="Migrations\202108100552402_updatecolumnimage.designer.cs">
+      <DependentUpon>202108100552402_updatecolumnimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminUser.cs" />
     <Compile Include="Models\LocalFoodDBContext.cs" />
@@ -163,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108091059200_AddedAdminUsers.resx">
       <DependentUpon>202108091059200_AddedAdminUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108100549041_updateproducttable.resx">
+      <DependentUpon>202108100549041_updateproducttable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108100552402_updatecolumnimage.resx">
+      <DependentUpon>202108100552402_updatecolumnimage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

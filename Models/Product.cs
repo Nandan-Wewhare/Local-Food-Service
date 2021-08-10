@@ -27,10 +27,6 @@ namespace LocalFoodBusinessLayer.Models
         public float Discount { get; set; }
 
         [Required]
-        [MaxLength(50)]
         public string Image { get; set; }
-
-        [Required]
-        public bool COD { get; set; }
     }
 }
