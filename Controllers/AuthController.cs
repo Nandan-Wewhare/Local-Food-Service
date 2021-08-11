@@ -23,7 +23,7 @@ namespace LocalFoodBusinessLayer.Controllers
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Email ID does not exist");
                 else if (searchResult.Password != loginUser.Password)
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Incorrect password");
-                return Request.CreateResponse(HttpStatusCode.OK, "Login success");
+                return Request.CreateResponse(HttpStatusCode.OK, searchResult);
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace LocalFoodBusinessLayer.Controllers
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Email ID does not exist");
                 else if (searchResult.Password != adminUser.Password)
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Incorrect password");
-                return Request.CreateResponse(HttpStatusCode.OK, "Login success");
+                return Request.CreateResponse(HttpStatusCode.OK, searchResult);
             }
             catch (Exception ex)
             {

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 import { Product } from 'src/app/types/Product';
 
@@ -10,7 +11,7 @@ import { Product } from 'src/app/types/Product';
 })
 export class ItemsadminComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   error = "";
   message = "";
   products: Product[] = [];
@@ -20,6 +21,7 @@ export class ItemsadminComponent implements OnInit {
   }
 
   initialiseData() {
+    this.products = [];
     this.isLoading = true;
     var admin = new AdminService(this.http);
     admin.getAllProducts().subscribe((response) => {
@@ -55,11 +57,12 @@ export class ItemsadminComponent implements OnInit {
     var admin = new AdminService(this.http);
     admin.deleteProduct(id).subscribe((res) => {
       this.message = "Success";
+      this.initialiseData();
     }, (error) => { this.error = error["statusText"] })
   }
 
   onSubmit(formData: any) {
     var admin = new AdminService(this.http);
-    admin.addProduct(formData).subscribe((res) => { this.message = "success"; this.initialiseData(); }, (error) => { this.error = error["statusText"] })
+    admin.addProduct(formData).subscribe((res) => { this.message = "success"; this.router.navigateByUrl("items") }, (error) => { console.log(error); this.error = error["error"]["Message"] })
   }
 }

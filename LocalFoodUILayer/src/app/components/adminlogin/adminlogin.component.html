@@ -1,1 +1,33 @@
-<p>adminlogin works!</p>
+<div style="background: url('assets/image1.jpeg'); height: 100vh;">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+        </div>
+    </div>
+    <p align="center" style="color: red;" *ngIf="!email.valid && email.touched && pswd.touched"> Enter valid values!</p>
+    <div *ngIf="error!=''" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{error}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center" style="margin-top: 10%;">
+            <div class="card" style="width: 28rem;">
+                <h2 class="card-header">Admin login</h2>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Admin Username</label>
+                            <input type="text" class="form-control" placeholder="Enter username" ngModel
+                                name="username" required #email="ngModel">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="password" name="password" ngModel
+                                required #pswd="ngModel">
+                        </div>
+                        <input type="submit" value="Login" class="btn btn-primary" [disabled]="!f.valid">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
+import { UserhomeComponent } from './components/userhome/userhome.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,7 +24,9 @@ const appRoutes: Routes = [
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'items', component: ItemsadminComponent },
   { path: 'orders', component: OrdersComponent },
-  { path: 'users', component: UsersComponent }
+  { path: 'users', component: UsersComponent },
+  { path: 'home', component: UserhomeComponent },
+  { path: 'cart', component: CartComponent }
 ];
 @NgModule({
   declarations: [
@@ -34,6 +39,9 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     AdminloginComponent,
+    UserhomeComponent,
+    HeaderComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

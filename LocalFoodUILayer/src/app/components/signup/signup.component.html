@@ -1,1 +1,72 @@
-<p>signup works!</p>
+<div style="background: url('assets/image1.jpeg'); height: 100vh;">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+        </div>
+    </div>
+    <p align="center" style="color: red;" *ngIf="!email.valid && email.touched && pswd.touched"> Enter valid values!</p>
+    <div *ngIf="error!=''" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{error}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center" style="margin-top: 10%;">
+            <div class="card" style="width: 38rem;">
+                <h2 class="card-header">Signup to get started</h2>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                <input type="text" class="form-control" placeholder="name@example.com" ngModel
+                                    name="username" required #email="ngModel">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
+                                <input type="text" class="form-control" placeholder="Enter mobile number" ngModel
+                                    name="mobile" [maxLength]="10" required #email="ngModel">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                                <input type="text" class="form-control" placeholder="Enter gender" ngModel name="gender"
+                                    required #email="ngModel">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Address</label>
+                                <input type="text" class="form-control" placeholder="Enter address" ngModel
+                                    name="address" required #email="ngModel">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">City</label>
+                                <input type="text" class="form-control" placeholder="Enter city" ngModel name="city"
+                                    required #email="ngModel">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Pincode</label>
+                                <input type="text" class="form-control" placeholder="Enter pincode" ngModel
+                                    name="pincode" required #email="ngModel">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" placeholder="name@example.com" ngModel
+                                    name="email" required email #email="ngModel">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+                                <input type="password" class="form-control" placeholder="password" name="password"
+                                    ngModel required #pswd="ngModel">
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" value="Signup" class="btn btn-block btn-success" [disabled]="!f.valid">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
