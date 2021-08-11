@@ -145,6 +145,10 @@
     <Compile Include="Migrations\202108100734265_addedCartTable.designer.cs">
       <DependentUpon>202108100734265_addedCartTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108110423572_changeDatatype.cs" />
+    <Compile Include="Migrations\202108110423572_changeDatatype.designer.cs">
+      <DependentUpon>202108110423572_changeDatatype.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminUser.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -187,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108100734265_addedCartTable.resx">
       <DependentUpon>202108100734265_addedCartTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108110423572_changeDatatype.resx">
+      <DependentUpon>202108110423572_changeDatatype.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

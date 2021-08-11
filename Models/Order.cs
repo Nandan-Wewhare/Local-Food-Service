@@ -17,7 +17,7 @@ namespace LocalFoodBusinessLayer.Models
         public string Email { get; set; }
 
         [Required]
-        public int Mobile { get; set; }
+        public string Mobile { get; set; }
 
         [Required]
         [MaxLength(50)]
