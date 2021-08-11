@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace LocalFoodBusinessLayer.Controllers
 {
-    [EnableCors(origins: "", headers: "", methods: "*")]
+    //[EnableCors(origins: "", headers: "", methods: "*")]
     [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {

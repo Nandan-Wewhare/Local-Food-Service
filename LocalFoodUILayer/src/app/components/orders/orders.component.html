@@ -3,6 +3,28 @@
         <app-sidenavadmin></app-sidenavadmin>
     </div>
     <div class="col md-9">
-        <p>orders admin</p>
+        <h1>Orders</h1>
+        <table class=" table table-hover">
+            <thead>
+                <tr>
+                    <th>Customer Email</th>
+                    <th>Customer Mobile</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>User ID</th>
+                    <th>Product ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders">
+                    <td>{{order.email}}</td>
+                    <td>{{order.mobile}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.quantity}}</td>
+                    <td>{{order.userId}}</td>
+                    <td>{{order.productId}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

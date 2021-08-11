@@ -22,11 +22,10 @@ export class OrdersComponent implements OnInit {
   initialiseData() {
     var admin = new AdminService(this.http);
     admin.getAllOrders().subscribe((response) => {
-      var responseProducts = JSON.parse(JSON.stringify((response)));
-      console.log(responseProducts);
-      // responseProducts.forEach((item: any) => {
-      //   this.orders.push(new Order(item["ProductID"], item["ProductName"], item["Image"], item["Details"], item["Price"], item["Discount"], item["CategoryType"]));
-      // })
+      var responseOrders = JSON.parse(JSON.stringify((response)));
+      responseOrders.forEach((item: any) => {
+        this.orders.push(new Order(item["Email"], item["Mobile"], item["ProductName"], item["Quantity"], item["UserId"], item["ProductID"]));
+      })
     }, (error) => { this.error = error["statusText"] })
   }
 

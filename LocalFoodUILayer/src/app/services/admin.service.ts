@@ -48,4 +48,9 @@ export class AdminService {
     return this.http.get(this.baseUrl + "/user/AllOrders")
   }
 
+  // User Controls
+  getAllUsers() {
+    return this.http.get(this.baseUrl + "/user/AllUsers")
+  }
+
 }
