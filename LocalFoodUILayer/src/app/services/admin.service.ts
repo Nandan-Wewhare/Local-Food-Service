@@ -8,6 +8,8 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
   baseUrl: string = environment.baseUrl;
+
+  // Product Controls
   getAllProducts() {
     return this.http.get(this.baseUrl + "/product/AllProducts")
   }
@@ -39,6 +41,11 @@ export class AdminService {
       "Image": formBody["image"]
     };
     return this.http.post(this.baseUrl + `/product/AddProduct`, addBody)
+  }
+
+  // Order Controls
+  getAllOrders() {
+    return this.http.get(this.baseUrl + "/user/AllOrders")
   }
 
 }
