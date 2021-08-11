@@ -16,7 +16,7 @@ namespace LocalFoodBusinessLayer.Models
         public string UserName { get; set; }
 
         [Required]
-        public int Mobile { get; set; }
+        public string Mobile { get; set; }
 
         [Required]
         [StringLength(10)]
