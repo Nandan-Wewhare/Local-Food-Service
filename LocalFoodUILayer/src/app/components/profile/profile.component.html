@@ -1,0 +1,57 @@
+<form (ngSubmit)="onUpdate(profile)" #profile="ngForm">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+            <label for="exampleFormControlInput1" class="form-label">Username</label>
+            <input type="text" class="form-control" placeholder="name@example.com" [ngModel]="profileBody['Email']"
+                name="username" #email="ngModel">
+        </div>
+        <div class="col-md-4">
+            <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" placeholder="Enter mobile number" [ngModel]="profileBody['Mobile']"
+                name="mobile" [maxLength]="10" #email="ngModel">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+            <label for="exampleFormControlInput1" class="form-label">Gender</label>
+            <input type="text" class="form-control" placeholder="Enter gender" [ngModel]="profileBody['Gender']"
+                name="gender" #email="ngModel">
+        </div>
+        <div class="col-md-4">
+            <label for="exampleFormControlInput1" class="form-label">Address</label>
+            <input type="text" class="form-control" placeholder="Enter address" [ngModel]="profileBody['Address']"
+                name="address" #email="ngModel">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+            <label for="exampleFormControlInput1" class="form-label">City</label>
+            <input type="text" class="form-control" placeholder="Enter city" [ngModel]="profileBody['City']" name="city"
+                #email="ngModel">
+        </div>
+        <div class="col-md-4">
+            <label for="exampleFormControlInput1" class="form-label">Pincode</label>
+            <input type="text" class="form-control" placeholder="Enter pincode" [ngModel]="profileBody['Pincode']"
+                name="pincode" #email="ngModel">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" placeholder="name@example.com" [ngModel]="profileBody['Email']"
+                name="email" email #email="ngModel">
+        </div>
+        <div class="col-md-4">
+            <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="password" name="password"
+                [ngModel]="profileBody['Password']" #pswd="ngModel">
+        </div>
+    </div>
+    <br>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-1">
+            <input type="submit" value="Update" class="btn btn-block btn-success"
+                [disabled]="!profile.dirty || !profile.valid">
+        </div>
+    </div>
+</form>

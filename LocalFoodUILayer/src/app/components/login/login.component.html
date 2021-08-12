@@ -20,8 +20,47 @@
                             <input type="password" class="form-control" placeholder="password" name="password" ngModel
                                 required #pswd="ngModel">
                         </div>
-                        <input type="submit" value="Login" class="btn btn-primary" [disabled]="!f.valid">
+                        <div *ngIf="!isLoading">
+                            <app-spinner *ngIf="isLoading"></app-spinner>
+                            <input type="submit" value="Login" class="btn btn-primary" [disabled]="!f.valid">
+                        </div>
                     </form>
+                    <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">Forgot Password</button>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Forgot Password</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form (ngSubmit)="changePassword(forgot)" #forgot="ngForm">
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Email
+                                                address</label>
+                                            <input type="email" class="form-control" placeholder="name@example.com"
+                                                ngModel name="email" required email #email="ngModel">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+                                            <input type="password" class="form-control" placeholder="password"
+                                                name="password" ngModel required #pswd="ngModel">
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <input type="submit" class="btn btn-primary" value="Proceed"
+                                                [disabled]="!forgot.valid">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

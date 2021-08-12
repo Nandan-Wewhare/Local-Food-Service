@@ -17,6 +17,7 @@ import { UserhomeComponent } from './components/userhome/userhome.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   { path: 'orders', component: OrdersComponent },
   { path: 'users', component: UsersComponent },
   { path: 'home', component: UserhomeComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'profile', component: ProfileComponent }
 ];
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     CartComponent,
     SpinnerComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

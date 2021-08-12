@@ -42,4 +42,17 @@ export class AuthService {
   adminLogin(loginBody: any) {
     return this.http.post(this.baseUrl + "/auth/adminlogin", loginBody);
   }
+
+  forgotPassword(forgotPswdBody: any) {
+    return this.http.patch(this.baseUrl + "/auth/forgotpassword", forgotPswdBody, { observe: 'response' })
+  }
+
+  getMyProfile(userId: number) {
+    return this.http.get(this.baseUrl + `/user/getprofile?userid=${userId}`)
+  }
+
+  updateProfile(profileBody: any) {
+    console.log(profileBody);
+    return this.http.patch(this.baseUrl + `/user/updateuser?userid=${this.currentUser()}`, profileBody)
+  }
 }

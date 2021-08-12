@@ -73,10 +73,30 @@ namespace LocalFoodBusinessLayer.Controllers
         [Route("AllOrders")]
         public HttpResponseMessage GetAllOrders()
         {
+            List<Order> orders = new List<Order>();
             try
             {
                 var context = new LocalFoodDBContext();
-                return Request.CreateResponse(HttpStatusCode.OK, context.Orders);
+                orders = context.Orders.ToList();
+                orders.ForEach(item => item.User = context.Users.FirstOrDefault(p => p.UserId == item.UserId));
+                return Request.CreateResponse(HttpStatusCode.OK, orders);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
+            }
+        }
+
+        [HttpPost]
+        [Route("PlaceOrder")]
+        public HttpResponseMessage PlaceOrder([FromBody] Order order)
+        {
+            try
+            {
+                var context = new LocalFoodDBContext();
+                context.Orders.Add(order);
+                context.SaveChanges();
+                return Request.CreateResponse(HttpStatusCode.Created, order);
             }
             catch (Exception ex)
             {

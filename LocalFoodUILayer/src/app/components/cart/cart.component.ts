@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/types/CartItem';
 
@@ -13,6 +14,7 @@ export class CartComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) {
     this.cartService = new CartService(this.http);
+    this.authService = new AuthService(this.http)
   }
   isLoading: boolean = false;
   error = ""
@@ -20,6 +22,7 @@ export class CartComponent implements OnInit {
   cart: CartItem[] = [];
   cartValue: number = 0;
   cartService: CartService
+  authService: AuthService
   ngOnInit(): void {
     this.cart = [];
     this.cartValue = 0;
@@ -39,7 +42,11 @@ export class CartComponent implements OnInit {
   }
 
   updateQty(id: number, increase: boolean) {
-    this.cartService.updateQuantity(id, increase).subscribe((res) => { this.ngOnInit(); }, (error) => { error["error"]["Message"] ?? error["statusText"] })
+    this.cartService.updateQuantity(id, increase).subscribe((res) => { this.ngOnInit(); }, (error) => { this.error = error["error"]["Message"] ?? error["statusText"] })
+  }
+
+  placeOrder(cartValue: number) {
+    this.cartService.placeOrder(cartValue, this.authService.currentUser()).subscribe((res) => { this.message = "Order Placed" }, (error) => { this.error = error["error"]["Message"] ?? error["statusText"] })
   }
 
 }

@@ -211,6 +211,14 @@
     <Compile Include="Migrations\202108120354000_addedquantityincart.designer.cs">
       <DependentUpon>202108120354000_addedquantityincart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108120750212_updatedOrder.cs" />
+    <Compile Include="Migrations\202108120750212_updatedOrder.designer.cs">
+      <DependentUpon>202108120750212_updatedOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108120758532_updatedOrdersRemovedAField.cs" />
+    <Compile Include="Migrations\202108120758532_updatedOrdersRemovedAField.designer.cs">
+      <DependentUpon>202108120758532_updatedOrdersRemovedAField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminUser.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -259,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108120354000_addedquantityincart.resx">
       <DependentUpon>202108120354000_addedquantityincart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108120750212_updatedOrder.resx">
+      <DependentUpon>202108120750212_updatedOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108120758532_updatedOrdersRemovedAField.resx">
+      <DependentUpon>202108120758532_updatedOrdersRemovedAField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

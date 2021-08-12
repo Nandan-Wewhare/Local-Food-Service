@@ -26,7 +26,10 @@ export class CartService {
   }
 
   updateQuantity(id: number, increase: boolean) {
-    console.log(id);
     return this.http.patch(environment.baseUrl + `/cart/updateQty?id=${id}&increase=${increase}`, {})
+  }
+
+  placeOrder(cartValue: number, userId: number) {
+    return this.http.post(environment.baseUrl + "/user/placeorder", { "price": cartValue, "userid": userId });
   }
 }

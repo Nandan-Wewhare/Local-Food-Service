@@ -12,7 +12,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AdminloginComponent implements OnInit {
 
   error: any = "";
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   ngOnInit(): void {
     localStorage.clear();

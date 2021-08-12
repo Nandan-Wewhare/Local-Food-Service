@@ -24,7 +24,7 @@ export class OrdersComponent implements OnInit {
     admin.getAllOrders().subscribe((response) => {
       var responseOrders = JSON.parse(JSON.stringify((response)));
       responseOrders.forEach((item: any) => {
-        this.orders.push(new Order(item["Email"], item["Mobile"], item["ProductName"], item["Quantity"], item["UserId"], item["ProductID"]));
+        this.orders.push(new Order(item["OrderID"], item["UserID"], item["Price"], item["User"]["Address"], item["User"]["Mobile"], item["User"]["Pincode"]));
       })
     }, (error) => { this.error = error["statusText"] })
   }

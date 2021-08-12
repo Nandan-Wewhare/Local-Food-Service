@@ -1,16 +1,16 @@
 export class Order {
-    email: string;
-    mobile: number;
-    name: string;
-    quantity: number;
+    orderId: number;
     userId: number;
-    productId: number;
-    constructor(email: string, mobile: number, name: string, quantity: number, userId: number, productId: number) {
-        this.email = email;
-        this.mobile = mobile;
-        this.name = name;
-        this.quantity = quantity;
+    cartValue: number;
+    address: string;
+    mobile: string;
+    pincode: number;
+    constructor(orderid: number, userId: number, cartValue: number, address: string, mobile: string, pincode: number) {
+        this.orderId = orderid;
         this.userId = userId;
-        this.productId = productId;
+        this.cartValue = cartValue;
+        this.address = address;
+        this.mobile = mobile;
+        this.pincode = pincode;
     }
 }
