@@ -1,0 +1,20 @@
+<div style="background-color: lightblue; height: 100vh; padding: 10px 10px 10px 0px;">
+    <ul>
+        <li class="him">By Other User</li>
+        <li class="me">By this User, first message</li>
+        <li class="me">By this User, secondmessage</li>
+        <li class="me">By this User, third message</li>
+        <li class="me">By this User, fourth message</li>
+    </ul>
+    <div class="row">
+        <div class="col-lg-9">
+            <form style="position:fixed; bottom: 10px;" #chatform="ngForm">
+                <input type="email" class="form-control" placeholder="Enter message" ngModel name="message" required
+                    #message="ngModel">
+            </form>
+        </div>
+        <div class="col-lg-3" style="position:fixed; bottom: 10px; left: 380px;">
+            <input type="submit" class="btn btn-primary" value="Send">
+        </div>
+    </div>
+</div>

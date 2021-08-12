@@ -18,6 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'home', component: UserhomeComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'chat', component: ChatbotComponent }
 ];
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     CartComponent,
     SpinnerComponent,
     ProfileComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,
