@@ -16,6 +16,7 @@ import { AdminloginComponent } from './components/adminlogin/adminlogin.componen
 import { UserhomeComponent } from './components/userhome/userhome.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     UserhomeComponent,
     HeaderComponent,
     CartComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

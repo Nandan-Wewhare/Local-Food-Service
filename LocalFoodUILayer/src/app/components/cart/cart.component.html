@@ -1,1 +1,37 @@
-<p>cart works!</p>
+<div *ngIf="error!=''" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{error}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div *ngIf="message!=''" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div style="background: url('assets/cartbg.jpg'); height: 100vh;">
+    <h2>My Cart</h2>
+    <app-spinner *ngForm="isLoading"></app-spinner>
+    <table *ngIf="!isLoading" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart">
+                <td>{{item.name}}</td>
+                <td>{{item.quantity}}
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-success" (click)="updateQty(item.id, true)">+</button>
+                        <button type="button" class="btn btn-danger" (click)="updateQty(item.id, false)">-</button>
+                    </div>
+                </td>
+                <td>{{item.total}}</td>
+                <td><button class="btn btn-danger" (click)="deleteItem(item.id)">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success" style="margin-left: 40%;">Place Order</button>
+    <span><b> Total Cart Value: </b> ₹ {{cartValue}}</span>
+</div>

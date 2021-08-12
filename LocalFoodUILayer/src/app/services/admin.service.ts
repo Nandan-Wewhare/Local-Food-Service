@@ -40,6 +40,7 @@ export class AdminService {
       "Discount": formBody["discount"],
       "Image": formBody["image"]
     };
+    console.log(addBody)
     return this.http.post(this.baseUrl + `/product/AddProduct`, addBody)
   }
 

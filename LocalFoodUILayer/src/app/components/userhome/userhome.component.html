@@ -1,3 +1,11 @@
+<div *ngIf="cartAddError!=''" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{cartAddError}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div *ngIf="cartAddMessage!=''" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{cartAddMessage}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <div class="container-fluid bg-dark text-light p-5">
     <div class="container bg-dark p-5">
         <h1 class="display-4">Welcome to Local Food Service</h1>
@@ -8,33 +16,16 @@
 <div style="text-align: center">
     <h2>Our Menu</h2>
 </div>
-<!-- <table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products">
-            <td>{{product.id}}</td>
-            <td>{{product.name}}</td>
-            <td><button class="btn btn-primary">Add to Cart</button>
-            </td>
-        </tr>
-    </tbody>
-</table> -->
-
-<div class="row">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div *ngIf="!isLoading" class="row">
     <div *ngFor="let product of products" class="col-md-4">
         <div class="card" style="width: 18rem;">
             <img src="{{product.image}}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.desc}}</p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <a (click)="addToCart(product.id.toString(), authService.currentUser().toString())"
+                    class="btn btn-primary">Add to Cart</a>
             </div>
         </div>
     </div>

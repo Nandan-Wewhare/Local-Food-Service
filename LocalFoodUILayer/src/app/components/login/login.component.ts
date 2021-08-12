@@ -19,6 +19,6 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     var auth = new AuthService(this.http);
-    auth.loginUser(form.value).subscribe((res) => { auth.authenticate("true", JSON.parse(JSON.stringify(res))["UserId"], false); this.router.navigateByUrl("home") }, (error) => { this.error = error["error"]["Message"] })
+    auth.loginUser(form.value).subscribe((res) => { auth.authenticate("true", JSON.parse(JSON.stringify(res))["UserId"], false); this.router.navigateByUrl("home") }, (error) => { this.error = error["error"]["Message"] ?? error["statusText"] })
   }
 }
