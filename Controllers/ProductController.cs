@@ -1,4 +1,5 @@
 ﻿using LocalFoodBusinessLayer.Models;
+using LocalFoodBusinessLayer.Utilities;
 using Microsoft.AspNetCore.Cors;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace LocalFoodBusinessLayer.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
+                Log.Error(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again");
             }
         }
 
@@ -41,7 +43,8 @@ namespace LocalFoodBusinessLayer.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
+                Log.Error(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again");
             }
         }
 
@@ -59,7 +62,8 @@ namespace LocalFoodBusinessLayer.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
+                Log.Error(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again");
             }
         }
 
@@ -83,7 +87,8 @@ namespace LocalFoodBusinessLayer.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again{ex.Message}");
+                Log.Error(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Please try again");
             }
         }
     }
