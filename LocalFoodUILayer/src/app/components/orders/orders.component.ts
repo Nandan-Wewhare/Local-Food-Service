@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Order } from 'src/app/types/Order';
 
 @Component({
@@ -10,7 +11,9 @@ import { Order } from 'src/app/types/Order';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.auth = new AuthService(this.http)
+  }
   error = "";
   message = "";
   orders: Order[] = [];
@@ -18,6 +21,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.initialiseData();
   }
+  auth: AuthService
 
   initialiseData() {
     var admin = new AdminService(this.http);

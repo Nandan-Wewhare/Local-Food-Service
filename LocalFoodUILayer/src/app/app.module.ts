@@ -19,6 +19,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
+import { DenyaccessComponent } from './components/denyaccess/denyaccess.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     SpinnerComponent,
     ProfileComponent,
     ChatbotComponent,
+    DenyaccessComponent,
   ],
   imports: [
     BrowserModule,

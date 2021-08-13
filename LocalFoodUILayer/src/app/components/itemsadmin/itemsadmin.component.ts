@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Product } from 'src/app/types/Product';
 
 @Component({
@@ -11,11 +12,14 @@ import { Product } from 'src/app/types/Product';
 })
 export class ItemsadminComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.auth = new AuthService(this.http)
+  }
   error = "";
   message = "";
   products: Product[] = [];
   isLoading: boolean = false;
+  auth: AuthService
 
   ngOnInit(): void {
     this.initialiseData();

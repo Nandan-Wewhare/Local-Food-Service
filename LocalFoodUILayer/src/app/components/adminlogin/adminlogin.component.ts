@@ -13,14 +13,13 @@ export class AdminloginComponent implements OnInit {
 
   error: any = "";
   constructor(private http: HttpClient, private router: Router) {
+    this.auth = new AuthService(this.http);
   }
-
+  auth: AuthService;
   ngOnInit(): void {
     localStorage.clear();
   }
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    var auth = new AuthService(this.http);
-    auth.adminLogin(form.value).subscribe((res) => { auth.authenticate("true", JSON.parse(JSON.stringify(res))["UserId"], true); this.router.navigateByUrl("adminHome") }, (error) => { console.log(error); this.error = error["error"]["Message"] ?? error["statusText"] })
+    this.auth.adminLogin(form.value).subscribe((res) => { this.auth.authenticate("true", JSON.parse(JSON.stringify(res))["UserId"], true); this.router.navigateByUrl("adminHome") }, (error) => { console.log(error); this.error = error["error"]["Message"] ?? error["statusText"] })
   }
 }

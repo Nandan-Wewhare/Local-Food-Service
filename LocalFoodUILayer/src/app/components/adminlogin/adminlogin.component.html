@@ -3,7 +3,8 @@
         <div class="col d-flex justify-content-center">
         </div>
     </div>
-    <p align="center" style="color: red;" *ngIf="!email.valid && email.touched && pswd.touched"> Enter valid values!</p>
+    <p align="center" style="color: red;" *ngIf="!email.valid && email.touched && pswd.touched"> Enter valid values!
+    </p>
     <div *ngIf="error!=''" class="alert alert-danger alert-dismissible fade show" role="alert">
         {{error}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

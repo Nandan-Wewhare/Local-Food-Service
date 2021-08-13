@@ -36,9 +36,10 @@
                     <a class="nav-link" routerLink="" (click)="auth.setLogout()">Logout</a>
                 </li>
             </ul>
-            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <ul class="nav-pills navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="chat">Get help with ChatBot</a>
+                    <a class="nav-link" routerLink="chat" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact : true}">Get help with ChatBot</a>
                 </li>
             </ul>
         </div>

@@ -1,11 +1,17 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <app-sidenavadmin></app-sidenavadmin>
-        </div>
-        <div class="col-md-9">
-            <h1>Welcome Admin, select an option to continue</h1>
-            <router-outlet></router-outlet>
+<div style="background-color: lightblue; height: 100vh;">
+    <div *ngIf="auth.isAuthenticated()[0] == 'true' && auth.isAuthenticated()[1] == 'true' ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <app-sidenavadmin></app-sidenavadmin>
+                </div>
+                <div class="col-md-9">
+                    <h1>Welcome Admin, select an option to continue</h1>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<app-denyaccess *ngIf="auth.isAuthenticated()[0] == 'false' && auth.isAuthenticated()[1] == 'false' "></app-denyaccess>

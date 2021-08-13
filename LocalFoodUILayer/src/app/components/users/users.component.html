@@ -1,34 +1,37 @@
-<div class="row">
-    <div class="col-md-3">
-        <app-sidenavadmin></app-sidenavadmin>
-    </div>
-    <div class="col md-9">
-        <h1>Users</h1>
-        <table class=" table table-striped">
-            <thead>
-                <tr>
-                    <th>User ID</th>
-                    <th>Username</th>
-                    <th>Mobile</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Pincode</th>
-                    <th>Gender</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{user.userId}}</td>
-                    <td>{{user.username}}</td>
-                    <td>{{user.mobile}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.address}}</td>
-                    <td>{{user.city}}</td>
-                    <td>{{user.pincode}}</td>
-                    <td>{{user.gender}}</td>
-                </tr>
-            </tbody>
-        </table>
+<div *ngIf="authService.isAuthenticated()[0] == 'true' && authService.isAuthenticated()[1] == 'true' ">
+    <div class="row">
+        <div class="col-md-3">
+            <app-sidenavadmin></app-sidenavadmin>
+        </div>
+        <div class="col md-9">
+            <h1>Users</h1>
+            <table class=" table table-striped">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Pincode</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{user.userId}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.mobile}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.address}}</td>
+                        <td>{{user.city}}</td>
+                        <td>{{user.pincode}}</td>
+                        <td>{{user.gender}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+<app-denyaccess *ngIf="authService.isAuthenticated()[0] == 'false'"></app-denyaccess>

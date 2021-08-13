@@ -1,28 +1,31 @@
-<div class="row">
-    <div class="col-md-3">
-        <app-sidenavadmin></app-sidenavadmin>
-    </div>
-    <div class="col md-9">
-        <h1>Orders</h1>
-        <table class=" table table-striped">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer Mobile</th>
-                    <th>Address</th>
-                    <th>Pincode</th>
-                    <th>Cart Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of orders">
-                    <td>{{order.orderId}}</td>
-                    <td>{{order.mobile}}</td>
-                    <td>{{order.address}}</td>
-                    <td>{{order.pincode}}</td>
-                    <td>₹ {{order.cartValue}}</td>
-                </tr>
-            </tbody>
-        </table>
+<div *ngIf="auth.isAuthenticated()[0] == 'true' && auth.isAuthenticated()[1] == 'true'">
+    <div class=" row">
+        <div class="col-md-3">
+            <app-sidenavadmin></app-sidenavadmin>
+        </div>
+        <div class="col md-9">
+            <h1>Orders</h1>
+            <table class=" table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Mobile</th>
+                        <th>Address</th>
+                        <th>Pincode</th>
+                        <th>Cart Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td>{{order.orderId}}</td>
+                        <td>{{order.mobile}}</td>
+                        <td>{{order.address}}</td>
+                        <td>{{order.pincode}}</td>
+                        <td>₹ {{order.cartValue}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+<app-denyaccess *ngIf="auth.isAuthenticated()[0] == 'false' && auth.isAuthenticated()[1] == 'false'"></app-denyaccess>
