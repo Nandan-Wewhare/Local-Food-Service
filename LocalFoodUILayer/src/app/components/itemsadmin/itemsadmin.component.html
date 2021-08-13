@@ -6,7 +6,8 @@
     {{message}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-<div *ngIf="auth.isAuthenticated()[0] == 'true' && auth.isAuthenticated()[1] == 'true'">
+<div *ngIf="auth.isAuthenticated()[0] == 'true' && auth.isAuthenticated()[1] == 'true'"
+    style="background: url('assets/adminbg2.png'); height: 100vh;">
     <div class="row">
         <div class="col-md-3">
             <app-sidenavadmin></app-sidenavadmin>
@@ -31,7 +32,7 @@
                 <tbody>
                     <tr *ngFor="let product of products">
                         <td>{{product.id}}</td>
-                        <td>{{product.name}}</td>
+                        <td><b>{{product.name}}</b></td>
                         <td><button class="btn btn-warning" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop">Update</button>
                         </td>

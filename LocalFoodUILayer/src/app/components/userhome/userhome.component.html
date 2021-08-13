@@ -24,7 +24,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.desc}}</p>
-                <a (click)="addToCart(product.id.toString(), authService.currentUser().toString())"
+                <a *ngIf="authService.isAuthenticated()[1] == 'false'"
+                    (click)="addToCart(product.id.toString(), authService.currentUser().toString())"
                     class="btn btn-primary">Add to Cart</a>
             </div>
         </div>

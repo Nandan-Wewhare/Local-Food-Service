@@ -23,7 +23,7 @@ export class ChatbotComponent implements OnInit {
   async sendMessage(messageBody: any) {
     this.messages.push(new Message(messageBody["message"], false))
     messageBody
-    await new Promise(f => setTimeout(f, 3000));
+    await new Promise(f => setTimeout(f, 1500));
     if (messageBody["message"].toLowerCase().includes("order")) {
       this.messages.push(new Message("You can place order after logging in", true))
     }
@@ -36,6 +36,12 @@ export class ChatbotComponent implements OnInit {
     }
     else if (messageBody["message"].toLowerCase().includes("cart")) {
       this.messages.push(new Message("You can access your cart from the navbar", true))
+    }
+    else if (messageBody["message"].toLowerCase().includes("reset password")) {
+      this.messages.push(new Message("Reset/update password from profile section easily!", true))
+    }
+    else if (messageBody["message"].toLowerCase().includes("thank you") || messageBody["message"].toLowerCase().includes("ok")) {
+      this.messages.push(new Message("Thanks for visiting Local Food Service! Ping me anytime 😉", true))
     }
     else {
       this.messages.push(new Message("Sorry I could not understand that", true))
