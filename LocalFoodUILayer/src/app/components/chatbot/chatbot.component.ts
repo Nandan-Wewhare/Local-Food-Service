@@ -22,7 +22,6 @@ export class ChatbotComponent implements OnInit {
 
   async sendMessage(messageBody: any) {
     this.messages.push(new Message(messageBody["message"], false))
-    messageBody
     await new Promise(f => setTimeout(f, 1500));
     if (messageBody["message"].toLowerCase().includes("order")) {
       this.messages.push(new Message("You can place order after logging in", true))
