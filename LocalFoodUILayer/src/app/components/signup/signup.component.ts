@@ -17,8 +17,14 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(form: NgForm) {
-    var auth = new AuthService(this.http);
-    auth.signup(form.value).subscribe((res) => { auth.authenticate("true", JSON.parse(JSON.stringify(res))["UserId"], false); this.router.navigateByUrl("home") }, (error) => { this.error = error["statusText"] })
-    this.router.navigateByUrl("home")
+    var regexp = new RegExp("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/")
+    if (regexp.test(form.value["password"])) {
+      var auth = new AuthService(this.http);
+      auth.signup(form.value).subscribe((res) => { auth.authenticate("true", JSON.parse(JSON.stringify(res))["UserId"], false); this.router.navigateByUrl("home") }, (error) => { this.error = error["statusText"] })
+      this.router.navigateByUrl("home")
+    }
+    else {
+      this.error = "Please abide by password rules"
+    }
   }
 }
