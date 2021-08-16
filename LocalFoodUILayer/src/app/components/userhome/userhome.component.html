@@ -17,7 +17,7 @@
     <h2>Our Menu</h2>
 </div>
 <app-spinner *ngIf="isLoading"></app-spinner>
-<div *ngIf="!isLoading" class="row">
+<div *ngIf="!isLoading" class="row justify-content-center">
     <div *ngFor="let product of products" class="col-md-4">
         <div class="card" style="width: 18rem;">
             <img src="{{product.image}}" class="card-img-top">

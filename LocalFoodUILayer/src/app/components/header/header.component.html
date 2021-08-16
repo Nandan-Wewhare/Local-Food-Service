@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" routerLink="home"><img src="assets/logo2.PNG" class="img-fluid" width="50"
-                height="40"></a>
+        <a class="navbar-brand" routerLink="home">
+            <img src="assets/delivery-man.png" class="img-fluid" width="50" height="40">
+        </a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -21,14 +22,24 @@
                     <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}"
                         routerLink="AdminLogin">Admin Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="chat" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact : true}" style="margin-right: 70vh;">Get help with ChatBot</a>
+                </li>
             </ul>
             <ul *ngIf="auth.isAuthenticated()[0] =='true' && auth.isAuthenticated()[1] == 'false' "
-                class="navbar-nav me-auto mt-2 mt-lg-0">
+                class="nav-pills navbar-nav ml-auto">
                 <li *ngIf="auth.isAuthenticated()[1] == 'false'" class="nav-item">
-                    <a class="nav-link" routerLink="profile">Profile</a>
+                    <a class="nav-link" routerLink="profile" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact : true}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="cart">Cart</a>
+                    <a class="nav-link" routerLink="cart" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact : true}">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="chat" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact : true}">Get help with ChatBot</a>
                 </li>
             </ul>
             <ul *ngIf="auth.isAuthenticated()[0] =='true' " class="navbar-nav me-auto mt-2 mt-lg-0">
@@ -36,14 +47,10 @@
                     <a class="nav-link" routerLink="" (click)="auth.setLogout()">Logout</a>
                 </li>
             </ul>
-            <ul class="nav-pills navbar-nav me-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="chat" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{exact : true}">Get help with ChatBot</a>
-                </li>
+            <ul class="nav justify-content-end">
+                <h3 style="color: white; font-family: 'Allura', cursive; margin-top: 10px; font-size: 45px;">
+                    Local Food Service</h3>
             </ul>
-            <h3 style="color: white; font-family: cursive; margin-top: 10px;">
-                Local Food Service</h3>
         </div>
     </div>
 </nav>
